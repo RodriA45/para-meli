@@ -376,9 +376,10 @@ h1, h2, h3 {
 /* Responsive */
 @media (min-width: 768px) {
     .reasons-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-    .story { display: flex; align-items: center; justify-content: center; text-align: left; gap: 40px; }
-    .story .container { display: flex; align-items: center; }
+    .story { text-align: left; }
+    .story .container { display: flex; align-items: center; gap: 50px; justify-content: center; }
     .story-image-container { margin-bottom: 0; flex-shrink: 0; }
+    .story-text { padding-left: 10px; }
     
     .masonry-gallery { column-count: 3; column-gap: 20px; padding: 0 30px; }
     .masonry-item { margin-bottom: 20px; }
