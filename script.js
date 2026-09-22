@@ -8,9 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let isMusicPlaying = false;
 
+    // Deshabilitar scroll al inicio
+    document.body.style.overflow = 'hidden';
+
     startBtn.addEventListener('click', () => {
-        // Ocultar modal
+        // Ocultar modal y habilitar scroll
         startOverlay.classList.add('hidden');
+        document.body.style.overflow = 'auto';
         
         // Intentar reproducir música
         bgMusic.volume = 0.5; // Volumen agradable
