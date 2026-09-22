@@ -119,7 +119,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Galería Masonry Dinámica con 55 fotos
+    // 5. Botón Ramo Virtual (Explosión de Flores)
+    const acceptBouquetBtn = document.getElementById('accept-bouquet-btn');
+    if (acceptBouquetBtn) {
+        acceptBouquetBtn.addEventListener('click', (e) => {
+            // Cambiar texto del botón
+            acceptBouquetBtn.innerHTML = '<i class="fas fa-check"></i> ¡Ramo aceptado! 💛';
+            acceptBouquetBtn.style.backgroundColor = '#d4a000';
+            
+            // Crear 40 emojis de flores amarillas que explotan desde el botón
+            const rect = acceptBouquetBtn.getBoundingClientRect();
+            const btnX = rect.left + rect.width / 2;
+            const btnY = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 40; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('explosion-flower');
+                flower.innerText = ['🌻', '🌼', '💛', '✨'][Math.floor(Math.random() * 4)];
+                
+                // Set start position
+                flower.style.left = `${btnX}px`;
+                flower.style.top = `${btnY}px`;
+                
+                // Calcular distancia y ángulo al azar para la explosión
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 300 + 100; // Entre 100 y 400px de distancia
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const rot = Math.random() * 720 - 360; // Rotación al azar
+                
+                flower.style.setProperty('--tx', `${tx}px`);
+                flower.style.setProperty('--ty', `${ty}px`);
+                flower.style.setProperty('--rot', `${rot}deg`);
+                
+                document.body.appendChild(flower);
+                
+                // Limpiar del DOM luego de la animación
+                setTimeout(() => {
+                    flower.remove();
+                }, 2000);
+            }
+        });
+    }
+
+    // 6. Galería Masonry Dinámica con 55 fotos
     const masonryGallery = document.getElementById('masonry-gallery');
     
     const images = [
