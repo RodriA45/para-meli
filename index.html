@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Meli 🌻</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for the music icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Pantalla de inicio para habilitar el audio -->
+    <div id="start-overlay" class="start-overlay">
+        <div class="start-content">
+            <h2>¡Hola Meli! 🌻</h2>
+            <p>Tengo una sorpresita para vos hoy...</p>
+            <button id="start-btn" class="heart-btn"><i class="fas fa-heart"></i> Toca acá</button>
+        </div>
+    </div>
+
+    <!-- Audio de fondo (Rodrigo debe agregar un music.mp3) -->
+    <audio id="bg-music" src="music.mp3" loop></audio>
+    
+    <button id="mute-btn" class="mute-btn hidden"><i class="fas fa-volume-up"></i></button>
+
+    <div id="petals-container"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Feliz Día de la Primavera</h1>
+            <h2 class="fade-in-up delay-1">Meli 💛</h2>
+            <p class="fade-in-up delay-2">Ya sé que estás media enferma y hoy no pude ir a verte ni llevarte flores en persona... pero no quería que termine el día sin hacerte algo lindo.</p>
+            <div class="scroll-indicator fade-in-up delay-3">
+                <span>Deslizá para ver más</span>
+                <div class="arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story section-padding">
+        <div class="container glass-card reveal slide-in-left">
+            <div class="story-image-container floating">
+                <img src="Img/1vez.jpeg" alt="Nuestra primera foto" class="story-image cinematic-zoom">
+                <div class="polaroid-caption">Acá empezó todo...</div>
+            </div>
+            <div class="story-text">
+                <h3>Lo nuestro</h3>
+                <p>Hace ya como un año y medio que empezamos a salir, ¡qué loco lo rápido que pasó todo! Y sí, tuvimos nuestras idas y vueltas, nuestras peleas y hasta esos meses que estuvimos separados...</p>
+                <p>Pero te juro que cada vez que volvemos a hablar, me doy cuenta de que te recontra amo. Sos todo para mí, y por más que a veces choquemos, no te cambio por nada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery section-padding">
+        <h3 class="gallery-title reveal slide-in-right">Nuestros Momentos</h3>
+        <p class="gallery-subtitle reveal slide-in-right">Un poquito de todas las locuras que pasamos juntos en este tiempo (paciencia que son un montón jajaja)</p>
+        
+        <!-- Contenedor Masonry para fotos cinemáticas -->
+        <div class="masonry-gallery" id="masonry-gallery">
+            <!-- JS inyectará las fotos acá -->
+        </div>
+    </section>
+
+    <footer class="footer section-padding">
+        <div class="container glass-card footer-card reveal scale-up">
+            <h3>Te amo muchísimo ❤️</h3>
+            <p>Espero que te mejores pronto así nos vemos. Que pases un re lindo día de la primavera, mi amor.</p>
+            <p class="signature">Ro.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
