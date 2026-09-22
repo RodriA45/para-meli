@@ -102,6 +102,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', reveal);
 
+    // 4. Cursor Trail (Estela interactiva)
+    document.addEventListener('mousemove', (e) => {
+        // Solo en pantallas grandes (no táctiles)
+        if (window.innerWidth > 768) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+
+            // Eliminar después de la animación
+            setTimeout(() => {
+                trail.remove();
+            }, 1000);
+        }
+    });
+
     // 4. Galería Masonry Dinámica con 55 fotos
     const masonryGallery = document.getElementById('masonry-gallery');
     
