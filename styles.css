@@ -29,17 +29,19 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Modal de Inicio */
+/* Modal de Inicio Mejorado */
 .start-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-color);
+    /* Imagen de fondo de flores amarillas con un degradado oscuro encima para que resalte el texto */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1552084117-56a98a99e180?q=80&w=1600&auto=format&fit=crop') center/cover;
     z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     transition: opacity 1s ease, visibility 1s ease;
+    overflow: hidden;
 }
 
 .start-overlay.hidden {
@@ -47,11 +49,52 @@ body {
     visibility: hidden;
 }
 
+.start-content.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    z-index: 10;
+    max-width: 90%;
+}
+
 .start-content h2 {
-    font-size: 2.5rem;
-    color: #e6b800;
+    font-size: 3rem;
+    color: #d4a000;
     margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
+}
+
+.start-content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Burbujas de fondo para la pantalla de inicio */
+.bubbles {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+.bubbles span {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    animation: floatUp 8s infinite ease-in;
+}
+.bubbles span:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
+.bubbles span:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; }
+.bubbles span:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 10s; animation-delay: 2s; }
+.bubbles span:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 12s; animation-delay: 0s; }
+.bubbles span:nth-child(5) { width: 35px; height: 35px; left: 70%; animation-duration: 7s; animation-delay: 3s; }
+.bubbles span:nth-child(6) { width: 60px; height: 60px; left: 85%; animation-duration: 9s; animation-delay: 1s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(360deg); opacity: 0; }
 }
 
 .heart-btn {
